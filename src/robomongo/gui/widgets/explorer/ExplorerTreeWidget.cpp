@@ -22,6 +22,12 @@ namespace Robomongo
         setHeaderHidden(true);
         setSelectionMode(QAbstractItemView::SingleSelection);
         setExpandsOnDoubleClick(false);
+
+        setStyleSheet("QTreeWidget::item { height: 24px;}");
+
+        QFont font = this->font();
+        font.setPointSize(11);
+        setFont(font);
     }
 
     void ExplorerTreeWidget::contextMenuEvent(QContextMenuEvent *event)
