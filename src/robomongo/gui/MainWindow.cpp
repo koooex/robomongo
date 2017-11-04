@@ -626,7 +626,7 @@ namespace Robomongo
         */
 
         createTabs();
-        createStatusBar();
+        // createStatusBar();
         setWindowTitle("Robo 3T - " + QString(PROJECT_VERSION_SHORT));
         setWindowIcon(GuiRegistry::instance().mainWindowIcon());
 
