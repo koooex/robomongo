@@ -539,7 +539,8 @@ namespace Robomongo
         connectToolBar->addAction(connectButtonAction);
         connectToolBar->setShortcutEnabled(1, true);
         connectToolBar->setMovable(false);
-        connectToolBar->setVisible(true /*toolbarsSettings["connect"].toBool()*/);
+        // connectToolBar->setVisible(true /*toolbarsSettings["connect"].toBool()*/);
+        connectToolBar->setVisible(toolbarsSettings["connect"].toBool());
         _toolbarsMenu->addAction(connectToolBar->toggleViewAction());
         VERIFY(connect(connectToolBar->toggleViewAction(), SIGNAL(triggered(bool)), this, SLOT(onConnectToolbarVisibilityChanged(bool))));
         setToolBarIconSize(connectToolBar);
@@ -549,7 +550,8 @@ namespace Robomongo
         openSaveToolBar->addAction(_openAction);
         openSaveToolBar->addAction(_saveAction);
         openSaveToolBar->setMovable(false);
-        openSaveToolBar->setVisible(true /*toolbarsSettings["open_save"].toBool()*/);
+        // openSaveToolBar->setVisible(true /*toolbarsSettings["open_save"].toBool()*/);
+        openSaveToolBar->setVisible(toolbarsSettings["open_save"].toBool());
         _toolbarsMenu->addAction(openSaveToolBar->toggleViewAction());
         VERIFY(connect(openSaveToolBar->toggleViewAction(), SIGNAL(triggered(bool)), this, SLOT(onOpenSaveToolbarVisibilityChanged(bool))));
         setToolBarIconSize(openSaveToolBar);
@@ -562,7 +564,8 @@ namespace Robomongo
         _execToolBar->addAction(_orientationAction);
         _execToolBar->setShortcutEnabled(1, true);
         _execToolBar->setMovable(false);
-        _execToolBar->setVisible(true /*toolbarsSettings["exec"].toBool()*/);
+        // _execToolBar->setVisible(true /*toolbarsSettings["exec"].toBool()*/);
+        _execToolBar->setVisible(toolbarsSettings["exec"].toBool());
         setToolBarIconSize(_execToolBar);
         addToolBar(_execToolBar);
 
