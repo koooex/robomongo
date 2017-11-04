@@ -2,7 +2,9 @@
 
 BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"       # Get directory of this file
 PROJECT_DIR=$(dirname $BIN_DIR)                                   # Get root directory of project
+DEVELOP_DIR=$(dirname $PROJECT_DIR)
+CLANG_BIN_DIR=$DEVELOP_DIR/clang-3.4.2/bin
 source $BIN_DIR/common/setup $1
 
 cd $BUILD_DIR
-cmake -D "CMAKE_PREFIX_PATH=$PREFIX_PATH" -D "CMAKE_BUILD_TYPE=$BUILD_TYPE" -D "CMAKE_INSTALL_PREFIX=$INSTALL_PREFIX" "${@:2}" $PROJECT_DIR
+cmake -D "CMAKE_C_COMPILER=$CLANG_BIN_DIR/clang" -D "CMAKE_CXX_COMPILER=$CLANG_BIN_DIR/clang++" -D "CMAKE_PREFIX_PATH=$PREFIX_PATH" -D "CMAKE_BUILD_TYPE=$BUILD_TYPE" -D "CMAKE_INSTALL_PREFIX=$INSTALL_PREFIX" "${@:2}" $PROJECT_DIR
