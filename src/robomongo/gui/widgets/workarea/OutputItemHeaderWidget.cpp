@@ -111,7 +111,7 @@ namespace Robomongo
         _paging->hide();
 
         QHBoxLayout *layout = new QHBoxLayout();
-        layout->setContentsMargins(2, 0, 5, 1);
+        layout->setContentsMargins(2, 3, 5, 1);
         layout->setSpacing(0);
 
         layout->addWidget(_collectionIndicator);

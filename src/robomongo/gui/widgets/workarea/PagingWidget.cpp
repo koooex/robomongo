@@ -33,6 +33,11 @@ namespace Robomongo
         _batchSizeEdit->setAlignment(Qt::AlignHCenter);
         _batchSizeEdit->setToolTip("Batch Size (number of documents shown at once)");
 
+        QFont font = _skipEdit->font();
+        font.setPointSize(11);
+        _skipEdit->setFont(font);
+        _batchSizeEdit->setFont(font);
+
         QFontMetrics metrics = _skipEdit->fontMetrics();
         int width = metrics.boundingRect("00000000").width();
         QRegExp rx("\\d+");

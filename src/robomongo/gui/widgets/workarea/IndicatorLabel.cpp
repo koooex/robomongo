@@ -11,6 +11,9 @@ namespace Robomongo
     {
         QLabel *iconLabel = createLabelWithIcon(icon);
         _label = new QLabel();
+        QFont font = _label->font();
+        font.setPointSize(11);
+        _label->setFont(font);
 
         QHBoxLayout *layout = new QHBoxLayout();
         layout->setSpacing(0);

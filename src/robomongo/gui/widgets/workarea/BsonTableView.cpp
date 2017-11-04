@@ -23,8 +23,13 @@ namespace Robomongo
         horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
         setStyleSheet("QTableView { border-left: 1px solid #c7c5c4; border-top: 1px solid #c7c5c4; gridline-color: #edebea;}");
 
+        QFont font = this->font();
+        font.setPointSize(11);
+        setFont(font);
+
         setSelectionMode(QAbstractItemView::ExtendedSelection);
-        setSelectionBehavior(QAbstractItemView::SelectItems);
+        // setSelectionBehavior(QAbstractItemView::SelectItems);
+        setSelectionBehavior(QAbstractItemView::SelectRows);
         setContextMenuPolicy(Qt::CustomContextMenu);
         VERIFY(connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(showContextMenu(const QPoint&))));
     }

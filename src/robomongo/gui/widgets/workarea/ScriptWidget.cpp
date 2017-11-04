@@ -59,13 +59,14 @@ namespace Robomongo
                       "border-radius: 0px; margin: 0px; padding: 0px;}");
 
         _queryText = new FindFrame(this);
+        /*
         _topStatusBar = new TopStatusBar(_shell->server()->connectionRecord()->connectionName(), 
                                          _shell->server()->connectionRecord()->getFullAddress(), "loading...");
-
+        */
         QVBoxLayout *layout = new QVBoxLayout;
         layout->setSpacing(0);
-        layout->setContentsMargins(5, 1, 5, 5);
-        layout->addWidget(_topStatusBar, 0, Qt::AlignTop);
+        layout->setContentsMargins(5, 5, 5, 5);
+        // layout->addWidget(_topStatusBar, 0, Qt::AlignTop);
         layout->addWidget(_queryText);
         setLayout(layout);
 
@@ -87,7 +88,8 @@ namespace Robomongo
         QStringListModel *model = new QStringListModel(_completer);
         _completer->setModel(model);
 
-        setText(QtUtils::toQString(shell->query()));
+        std::string text = shell->query() + "\n\n\n";
+        setText(QtUtils::toQString(text));
         setTextCursor(shell->cursor());
     }
 
@@ -155,12 +157,12 @@ namespace Robomongo
 
     void ScriptWidget::setCurrentDatabase(const std::string &database, bool isValid)
     {
-        _topStatusBar->setCurrentDatabase(database, isValid);
+        // _topStatusBar->setCurrentDatabase(database, isValid);
     }
 
     void ScriptWidget::setCurrentServer(const std::string &address, bool isValid)
     {
-        _topStatusBar->setCurrentServer(address, isValid);
+        // _topStatusBar->setCurrentServer(address, isValid);
     }
 
     void ScriptWidget::showAutocompletion(const QStringList &list, const QString &prefix)
