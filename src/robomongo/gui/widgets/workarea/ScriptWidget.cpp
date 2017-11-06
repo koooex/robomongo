@@ -90,7 +90,9 @@ namespace Robomongo
 
         std::string text = shell->query() + "\n\n\n";
         setText(QtUtils::toQString(text));
-        setTextCursor(shell->cursor());
+        // setTextCursor(shell->cursor());
+        CursorPosition cursor(shell->cursor().line(), shell->cursor().column() - 1);
+        setTextCursor(cursor);
     }
 
     bool ScriptWidget::eventFilter(QObject *obj, QEvent *event)
