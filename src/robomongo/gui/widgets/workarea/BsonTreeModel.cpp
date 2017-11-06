@@ -47,8 +47,9 @@ namespace
                     childItemInner->setValue(arrayValue(itemsCount));
                 }
                 else if (BsonUtils::isDocument(element)) {
-                    int count = BsonUtils::elementsCount(element.Obj());
-                    childItemInner->setValue(objectValue(count));
+                    // int count = BsonUtils::elementsCount(element.Obj());
+                    // childItemInner->setValue(objectValue(count));
+                    childItemInner->setValue(QtUtils::toQString(element.Obj().jsonString()));
                 }
                 else {
                     std::string result;
