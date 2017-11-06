@@ -43,6 +43,10 @@ int main(int argc, char *argv[], char** envp)
     // Initialize Qt application
     QApplication app(argc, argv);
 
+    QFont font = app.font();
+    font.setPointSize(11);
+    app.setFont(font);
+
     // On Unix/Linux Qt is configured to use the system locale settings by default.
     // This can cause a conflict when using POSIX functions, for instance, when
     // converting between data types such as floats and strings, since the notation
