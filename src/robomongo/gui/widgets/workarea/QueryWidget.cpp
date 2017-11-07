@@ -343,6 +343,8 @@ namespace Robomongo
 
     void QueryWidget::updateCurrentTab()
     {
+        static int sheet = 1;
+
         const QString &shellQuery = QtUtils::toQString(_shell->query());
         QString toolTipQuery = shellQuery.left(700);
 
@@ -362,6 +364,7 @@ namespace Robomongo
 
             if (tabTitle.isEmpty()) {
                 tabTitle = shellQuery.left(41).replace(QRegExp("[\n\r\t]"), " ");
+                tabTitle = QString("Workseet - %1").arg(sheet++);
                 toolTipText = QString("<pre>%1</pre>").arg(toolTipQuery);
             }
             else {
